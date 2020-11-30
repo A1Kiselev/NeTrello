@@ -1,12 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from '../../logo.svg';
+import './App.scss';
 import React from "react";
+import ListCards from "../List/ListCards";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        <ListCards listId='1'/>
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
