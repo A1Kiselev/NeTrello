@@ -1,16 +1,19 @@
 import React from 'react'
 import './ListCards.scss'
-import data from '../../TectData/TestData';
+import {TreButton} from "../Buttons/Buttons";
 
-const ListCards = ({listId}) => {
+const ListCards = ({list}) => {
 
-  const list = data.lists.find((el) => {
-    return el.listId === listId
-  });
   const isEmptyList = list && !list.cards.length;
 
   const cardClicked = () => {
     console.log('click');
+  }
+
+  const drawCards = () => {
+    list.cards.map((el) => {
+      return (<div>{el.description}</div>)
+    })
   }
 
   if (isEmptyList) {
@@ -24,8 +27,8 @@ const ListCards = ({listId}) => {
   return (
     <div className='list'>
       <div>{list.title}</div>
-      {list.cards.map((el) => {return (<div>{el.description}</div>)} ) }
-      <div onClick={cardClicked}>+ Add Card</div>
+      {drawCards}
+      <TreButton onClick={cardClicked} btnText='+ Add Card'/>
     </div>
   )
 }

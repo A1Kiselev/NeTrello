@@ -1,26 +1,14 @@
-import logo from '../../logo.svg';
 import './App.scss';
 import React from "react";
 import ListCards from "../List/ListCards";
+import data from "../../TectData/TestData";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <ListCards listId='1'/>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {data.lists.map((list) => {
+        return (<ListCards list={list}/>)
+      })}
     </div>
   );
 }
